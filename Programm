@@ -1,0 +1,30 @@
+# Program for automatically generating random passwords
+import random
+import string
+
+aPassword = []
+
+
+def Gen_Password(lenght):  # function that choose random number or letter
+
+    i = 0
+    while lenght > 0:
+        randWay = random.randint(0, 1)
+
+        if randWay == 1:
+            randCell = random.randint(0, 9)
+        else:
+            randCell = random.choice(string.ascii_letters)
+        aPassword.append(randCell)
+        lenght -= 1
+        i += 1
+
+
+def Question():
+    print("Enter the password length: ")
+    leight = input()
+    return int(leight)
+
+
+Gen_Password(Question())
+print(*aPassword, sep='')
